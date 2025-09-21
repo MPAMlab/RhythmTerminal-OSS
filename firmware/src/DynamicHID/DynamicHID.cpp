@@ -30,8 +30,8 @@
 
 const DeviceDescriptor PROGMEM USB_DeviceDescriptorIAD =
   D_DEVICE(0xEF,0x02,0x01,64,0x1ccf,0x5252,0x100,IMANUFACTURER,IPRODUCT,ISERIAL,1);
-const char* const PROGMEM String_Manufacturer = "CrazyRedMachine";
-const char* const PROGMEM String_Product = "CardIO";
+const char* const PROGMEM String_Manufacturer = "CRM-MPaM";
+const char* const PROGMEM String_Product = "RhythmTerminalCardIO";
 #if CARDIO_ID == 1
 const char* const PROGMEM String_Serial = "CARDIOP1";
 #else

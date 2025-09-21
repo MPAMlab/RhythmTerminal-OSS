@@ -31,4 +31,9 @@
 /* Enable custom VID/PID (will require to hold reset button to reflash firmware) */
 #define CUSTOM_VIDPID 1
 
+/* NFC polling timeouts (in milliseconds) */
+#define NFC_FELICA_TIMEOUT 10     // FeliCa polling timeout
+#define NFC_ISO14443_TIMEOUT 10   // ISO14443A polling timeout
+#define NFC_NO_CARD_DELAY 100     // Delay between polling cycles
+
 #endif

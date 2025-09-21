@@ -59,10 +59,6 @@ Serial.print("Didn't find PN53x board");
     while (1) {delay(10);};      // halt
   }
 
-  Serial.print("Found chip PN5"); Serial.println((versiondata >> 24) & 0xFF, HEX);
-  Serial.print("Firmware ver. "); Serial.print((versiondata >> 16) & 0xFF, DEC);
-  Serial.print('.'); Serial.println((versiondata >> 8) & 0xFF, DEC);
-
   // Set the max number of retry attempts to read from a card
   // This prevents us from waiting forever for a card, which is
   // the default behaviour of the PN532.
@@ -79,7 +75,6 @@ unsigned long lastReport = 0;
 uint16_t cardBusy = 0;
 unsigned long lastPollTime = 0;
 unsigned long pollCount = 0;
-bool nfcState = 0;  // 0 = FeliCa, 1 = ISO14443A - alternate between them
 
 // read cards loop
 void loop() {
@@ -114,12 +109,18 @@ void loop() {
   uint8_t pmm[8];
   uint16_t systemCodeResponse;
 
-  // Alternate between FeliCa and ISO14443A polling to reduce blocking
-  if (nfcState == 0) {
-    // Check for FeliCa card
-    ret = nfc.felica_Polling(systemCode, requestCode, idm, pmm, &systemCodeResponse, 100);  // 100ms timeout
+  // Check for FeliCa card
+  ret = nfc.felica_Polling(systemCode, requestCode, idm, pmm, &systemCodeResponse, NFC_FELICA_TIMEOUT);
 
     if (ret == 1) {
+      Serial.print("FeliCa card detected - IDm: ");
+      for (int i = 0; i < 8; i++) {
+        if (idm[i] < 0x10) Serial.print("0");
+        Serial.print(idm[i], HEX);
+      }
+      Serial.print(" SystemCode: 0x");
+      Serial.println(systemCodeResponse, HEX);
+
       Cardio.setUID(2, idm);
       Cardio.sendState();
       lastReport = millis();
@@ -127,23 +128,32 @@ void loop() {
       uidLength = 0;
       return;
     }
-  } else {
-    // Check for ISO14443 card
-    if (nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, &uid[0], &uidLength, 100)) {  // 100ms timeout
+
+   // check for ISO14443 card
+    if (nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, &uid[0], &uidLength, NFC_ISO14443_TIMEOUT)) {
+      Serial.print("ISO14443A card detected - UID: ");
+      for (int i = 0; i < uidLength; i++) {
+        if (uid[i] < 0x10) Serial.print("0");
+        Serial.print(uid[i], HEX);
+      }
+      Serial.print(" (Length: ");
+      Serial.print(uidLength);
+      Serial.println(" bytes)");
+
+      // Apply UID masking for compatibility (like PN5180 implementation)
+      uid[0] &= 0x0F; // some games won't accept cards with a first byte higher than 0x0F
+
       for (int i=0; i<8; i++) {
         hid_data[i] = uid[i%uidLength];
       }
-      Cardio.setUID(1, hid_data);
+      // Report as type 2 (FeliCa) for maximum compatibility
+      Cardio.setUID(2, hid_data);
       Cardio.sendState();
       lastReport = millis();
       cardBusy = 3000;
       return;
     }
-  }
-
-  // Toggle NFC state for next iteration
-  nfcState = !nfcState;
   // no card detected - reduced delay for better keypad responsiveness
   lastReport = millis();
-  cardBusy = 50;  // 50ms delay between NFC polling cycles
+  cardBusy = NFC_NO_CARD_DELAY;  // Delay between NFC polling cycles
 }
