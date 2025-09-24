@@ -12,6 +12,7 @@ This project involved AI-generated codes.
   - Sublime Text
   - Claude Code
   - SketchUp
+  - MayCAD
 
 ## Parts
 
