@@ -2,7 +2,7 @@
 
 This is a project that can emulate a card reader and key inputs for certain rhythm games.
 
-This project heavily referenced	codes from https://github.com/CrazyRedMachine/PN5180-cardio
+This project heavily referenced	codes from https://github.com/CrazyRedMachine/PN5180-cardio, based on that, we have implemented with more controlling buttons and a highly-customized case.
 
 This project involved AI-generated codes.
 
@@ -22,10 +22,17 @@ This project involved AI-generated codes.
   - Round Key Switches x2
   - 3x4 metrix Keypad
   - Key-operated Switch
+  - Mounting HW
 
-## Usage
+## Usage / Build
 
 [TBD]
+
+## Versioning
+
+The current project is for Rhythm Terminal ver. Henkaku.
+
+Ver. Band is onto the process of modelling.
 
 ## License
 
