@@ -34,6 +34,14 @@ The current project is for Rhythm Terminal ver. Henkaku.
 
 Ver. Band is onto the process of modelling.
 
+## Special Thanks
+
+@KClbutHOSHiNO for physically frame build helping
+
+(@ZhuoLingBW)[https://github.com/ZhuoLingBW] for physically wiring helping
+
+(@fish-cave)[https://github.com/fish-cave] for location test helping.
+
 ## License
 
 This project is using GPL-3.0 license for code to keep the 'Same license' condition of repository PN5180-cardio, and CC BY-SA-4.0 license for the rest parts. You can use or modify this project as long as you follow the license.
