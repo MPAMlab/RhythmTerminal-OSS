@@ -38,9 +38,9 @@ Ver. Band is onto the process of modelling.
 
 @KClbutHOSHiNO for physically frame build helping
 
-(@ZhuoLingBW)[https://github.com/ZhuoLingBW] for physically wiring helping
+[@ZhuoLingBW](https://github.com/ZhuoLingBW) for physically wiring helping
 
-(@fish-cave)[https://github.com/fish-cave] for location test helping.
+[@fish-cave](https://github.com/fish-cave) for location test helping.
 
 ## License
 
