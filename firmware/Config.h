@@ -27,7 +27,7 @@
   #define PIN_NAV8 10    // GP10
 
 /* Player ID (1 or 2) */
-#define CARDIO_ID 1
+#define CARDIO_ID 2
 /* Enable custom VID/PID (will require to hold reset button to reflash firmware) */
 #define CUSTOM_VIDPID 1
 

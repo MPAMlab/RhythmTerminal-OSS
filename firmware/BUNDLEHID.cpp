@@ -70,11 +70,11 @@ BUNDLEHID_::BUNDLEHID_(void) {
     tempHidReportDescriptor[hidReportDescriptorSize++] = 0x05;  // USAGE_PAGE (Button)
     tempHidReportDescriptor[hidReportDescriptorSize++] = 0x09;
 
-    tempHidReportDescriptor[hidReportDescriptorSize++] = 0x19;  // USAGE_MINIMUM (1)
-    tempHidReportDescriptor[hidReportDescriptorSize++] = 0x01;
+    tempHidReportDescriptor[hidReportDescriptorSize++] = 0x19;  // USAGE_MINIMUM (13)
+    tempHidReportDescriptor[hidReportDescriptorSize++] = 0x0D;
 
-    tempHidReportDescriptor[hidReportDescriptorSize++] = 0x29;  // USAGE_MAXIMUM (8)
-    tempHidReportDescriptor[hidReportDescriptorSize++] = BUNDLE_NAV_BUTTONS;
+    tempHidReportDescriptor[hidReportDescriptorSize++] = 0x29;  // USAGE_MAXIMUM (20)
+    tempHidReportDescriptor[hidReportDescriptorSize++] = 0x14;
 
     tempHidReportDescriptor[hidReportDescriptorSize++] = 0x15;  // LOGICAL_MINIMUM (0)
     tempHidReportDescriptor[hidReportDescriptorSize++] = 0x00;
