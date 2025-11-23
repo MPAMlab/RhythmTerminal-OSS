@@ -44,7 +44,7 @@ Please note that the brands in the images are not endorsements or advertisements
 
 ## Special Thanks
 
-@KClbutHOSHiNO for physically frame build helping.
+[@KClbutHOSHiNO](https://github.com/HOSHiNOMONO) for physically frame build helping.
 
 [@ZhuoLingBW](https://github.com/ZhuoLingBW) for physically wiring helping.
 
