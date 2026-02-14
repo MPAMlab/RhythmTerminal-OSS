@@ -54,4 +54,12 @@ The first product of Rhythm Terminal has been up running normally for about 2 mo
 
 ## License
 
-This project is using GPL-3.0 license for code to keep the 'Same license' condition of repository PN5180-cardio, and CC BY-SA-4.0 license for the rest parts. You can use or modify this project as long as you follow the license.
+This project is using GPL-3.0 license for code to keep the 'Same license' condition of repository PN5180-cardio, CC BY-SA-4.0 license for the documentations, images and multimedia, and CERN-OHL-W license for the Hardware Design. You can use or modify this project as long as you follow the license.
+
+### License Transition Note
+
+Prior to February 14, 2026, the Hardware Design was licensed under Creative Commons.
+
+If you began an adaptation or derivative work under the previous license before this date, you may continue to use it under those terms.
+
+All new adaptations, contributions, or distributions created after February 14, 2026, must adhere to the CERN-OHL-W license.
